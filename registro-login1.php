@@ -142,7 +142,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['loginSubmit'])) {
         $row = $result->fetch_assoc();
         if ($password === $row['senha']) {
             echo "Login successful!";
-            // Você pode definir uma sessão aqui ou redirecionar o usuário para uma página diferente.
         } else {
             echo "Senha inválida!";
         }
@@ -151,8 +150,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['loginSubmit'])) {
     }
 
     $conn->close();
-    $_SESSION['user_id'] = $row['idusuarios']; // Substitua com a chave primária do seu banco de dados para o usuário
-    $_SESSION['user_nome'] = $row['nome']; // Substitua com o nome do usuário do seu banco de dados
+    $_SESSION['user_id'] = $row['idusuarios']; 
+    $_SESSION['user_nome'] = $row['nome']; 
     header("Location: index1.php");
     exit();
 }
